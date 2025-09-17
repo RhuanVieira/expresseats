@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Container dividido em 2 metades */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* LADO ESQUERDO COM MEIO CÍRCULO */
+.left-side {
+  position: relative;
+  width: 50%;
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Círculo gigante, cortado ao meio */
+.circle {
+  position: absolute;
+  width: 200vh; /* Altura da viewport como base do círculo */
+  height: 200vh;
+  background-color: #fcdad5;
+  border-radius: 50%;
+  left: -100vh; /* Move o círculo para que só a metade direita apareça */
+  top: -50vh;   /* Centraliza verticalmente */
+  z-index: 0;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 120px; /* ajuste conforme o tamanho desejado */
+  height: auto;
+  z-index: 2; /* acima do círculo */
+}
+
+/* Imagem por cima do círculo */
+.clientes {
+  position: relative;
+  z-index: 1;
+  max-width: 55%; /* Reduzido de 70% para 55% */
+  height: auto;
+}
+
+/* LADO DIREITO COM FORMULÁRIO */
+.right-side {
+  width: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo do formulário */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 80%;
+  max-width: 300px;
+  background-color: #f6f6f6;
+  padding: 30px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-inline: ;
+  border-radius: 10px;
+}
+
+.login-form h2 {
+  color: #434343;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.frases{
+  color: #F44029;
+text-align: center;
+margin-bottom: 5px;
+font-size: 15px;
+transform: translateY(0);
+  transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #F44029;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #d13824;
+}

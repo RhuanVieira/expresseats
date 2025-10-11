@@ -216,7 +216,7 @@ html, body {
 
   .right-side {
   width: 100%;
-  margin-top: 100px;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,7 +232,7 @@ html, body {
 
    .left-side {
     width: 100%;
-    height: 75px; /* altura suficiente para o meio círculo e logo */
+    height: 100px; /* altura suficiente para o meio círculo e logo */
     position: relative;
     overflow: visible;
     display: flex;

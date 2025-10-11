@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Entrar — Minha Conta</title>
+
+  <!-- Fonte neutra e moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #1a73e8; /* azul elegante, não é logo */
+      --accent-dark: #145dbf;
+      --danger: #d93025;
+      --radius: 12px;
+      --shadow: 0 8px 28px rgba(18, 23, 36, 0.08);
+      --glass: rgba(255,255,255,0.6);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg, var(--bg), #eef2ff 80%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{
+      width: 100%;
+      max-width: 420px;
+      margin: 32px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      border: 1px solid rgba(16,24,40,0.04);
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-mark {
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      background: linear-gradient(135deg,#e6f0ff33,#f7fbff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid rgba(26,115,232,0.08);
+    }
+    /* simple geometric mark (not trademark) */
+    .logo-mark svg { width:34px; height:34px; }
+
+    .brand h1{
+      font-size:18px;
+      margin:0;
+      font-weight:600;
+      color:#0f1724;
+    }
+    .brand p{
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .avatar-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:4px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:6px;
+      font-weight:500;
+    }
+
+    .input{
+      position:relative;
+    }
+
+    input[type="email"],
+    input[type="password"]{
+      width:100%;
+      padding:12px 44px 12px 12px;
+      border-radius:10px;
+      border:1px solid rgba(16,24,40,0.08);
+      background: #fff;
+      font-size:15px;
+      outline:none;
+      transition:box-shadow .12s, border-color .12s;
+    }
+
+    input:focus{
+      box-shadow: 0 4px 14px rgba(26,115,232,0.12);
+      border-color: var(--accent);
+    }
+
+    .field-icon{
+      position:absolute;
+      right:10px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      gap:8px;
+      align-items:center;
+      color:var(--muted);
+    }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .checkbox {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    button.primary{
+      width:100%;
+      padding:12px 16px;
+      border-radius:10px;
+      border:0;
+      background:linear-gradient(180deg,var(--accent),var(--accent-dark));
+      color:#fff;
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+      display:inline-flex;
+      justify-content:center;
+      gap:10px;
+      align-items:center;
+      transition:transform .08s, box-shadow .08s, opacity .12s;
+      box-shadow: 0 6px 18px rgba(26,115,232,0.18);
+    }
+    button.primary:active{ transform: translateY(1px) }
+    button.primary[disabled]{ opacity:.7; cursor:default; box-shadow:none }
+
+    .meta-links{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      font-size:13px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    a.link{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+    a.link:hover { text-decoration: underline; }
+
+    .error{
+      color:var(--danger);
+      font-size:13px;
+      margin-top:6px;
+    }
+
+    .helper{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* focus visible for accessibility */
+    :focus-visible{ outline: 3px solid rgba(26,115,232,0.15); border-radius:8px; }
+
+    /* responsive */
+    @media (max-width:420px){
+      .card{ padding:20px }
+      .logo-mark{ width:44px; height:44px; border-radius:10px; }
+    }
+
+    /* tiny spinner */
+    .spinner {
+      border-radius:50%;
+      width:16px;
+      height:16px;
+      border:2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      animation:spin 0.85s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg) } }
+
+    /* subtle link-line */
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(16,24,40,0.04), transparent);
+      margin:8px 0 0 0;
+      border-radius:4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" aria-live="polite">
+    <div class="card" role="main" aria-labelledby="login-title">
+      <div class="brand" aria-hidden="false">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- geometric mark (svg) - not a trademark -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="7.2" height="7.2" rx="2.2" fill="#cfe8ff"/>
+            <rect x="13.8" y="3" width="7.2" height="7.2" rx="2.2" fill="#d9f1ff"/>
+            <rect x="3" y="13.8" width="7.2" height="7.2" rx="2.2" fill="#eaf6ff"/>
+            <rect x="13.8" y="13.8" width="7.2" height="7.2" rx="2.2" fill="#cfe8ff"/>
+          </svg>
+        </div>
+        <div>
+          <h1 id="login-title">Entrar na sua conta</h1>
+          <p>Use seu e‑mail e senha para continuar</p>
+        </div>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div>
+          <label for="email">E‑mail</label>
+          <div class="input">
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+              placeholder="seu@exemplo.com" required aria-required="true"
+              aria-describedby="emailHelp" />
+            <div class="field-icon" aria-hidden="true">
+              <!-- mail icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 7.5v9A2.5 2.5 0 0 0 5.5 19h13A2.5 2.5 0 0 0 21 16.5v-9" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7.5l8.5 6L20 7.5" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div id="emailHelp" class="small" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="password">Senha</label>
+          <div class="input">
+            <input id="password" name="password" type="password" autocomplete="current-password"
+              placeholder="••••••••" required aria-required="true" minlength="6" />
+            <div class="field-icon">
+              <button type="button" id="togglePwd" title="Mostrar senha" aria-pressed="false"
+                      style="background:none;border:0;padding:4px;cursor:pointer;color:var(--muted)">
+                <!-- eye icon -->
+                <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2.5 12S5.5 5.5 12 5.5 21.5 12 21.5 12 18.5 18.5 12 18.5 2.5 12 2.5 12z" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.2" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div id="pwdHelp" class="small" aria-live="polite"></div>
+        </div>
+
+        <div class="row">
+          <label class="checkbox"><input id="remember" name="remember" type="checkbox" /> Lembrar-me</label>
+          <div>
+            <a href="#" class="link" id="forgotLink">Esqueceu a senha?</a>
+          </div>
+        </div>
+
+        <div>
+          <button class="primary" id="submitBtn" type="submit" aria-live="polite">
+            Entrar
+          </button>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="meta-links">
+          <span class="small">Não tem uma conta?</span>
+          <a href="#" class="link" id="signupLink">Criar conta</a>
+        </div>
+
+        <div id="formError" class="error" role="alert" aria-live="assertive" style="display:none"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const form = document.getElementById('loginForm');
+      const email = document.getElementById('email');
+      const pwd = document.getElementById('password');
+      const emailHelp = document.getElementById('emailHelp');
+      const pwdHelp = document.getElementById('pwdHelp');
+      const submitBtn = document.getElementById('submitBtn');
+      const formError = document.getElementById('formError');
+      const toggle = document.getElementById('togglePwd');
+      const eyeIcon = document.getElementById('eyeIcon');
+
+      // basic email check (digit-by-digit mindset: not trusting simple regex)
+      function isValidEmail(v){
+        // minimal RFC-like check: contains one @ and at least one dot after @
+        if(!v || typeof v !== 'string') return false;
+        const at = v.indexOf('@');
+        if(at <= 0) return false;
+        const domain = v.slice(at+1);
+        if(domain.indexOf('.') <= 0) return false;
+        // no spaces
+        if(/\s/.test(v)) return false;
+        return true;
+      }
+
+      email.addEventListener('input', () => {
+        if(email.value === '') {
+          emailHelp.textContent = '';
+          email.removeAttribute('aria-invalid');
+          return;
+        }
+        if(!isValidEmail(email.value)){
+          emailHelp.textContent = 'E‑mail inválido';
+          email.setAttribute('aria-invalid','true');
+        } else {
+          emailHelp.textContent = '';
+          email.removeAttribute('aria-invalid');
+        }
+      });
+
+      pwd.addEventListener('input', () => {
+        if(pwd.value.length > 0 && pwd.value.length < 6){
+          pwdHelp.textContent = 'A senha precisa ter ao menos 6 caracteres';
+          pwd.setAttribute('aria-invalid','true');
+        } else {
+          pwdHelp.textContent = '';
+          pwd.removeAttribute('aria-invalid');
+        }
+      });
+
+      toggle.addEventListener('click', () => {
+        const shown = pwd.type === 'text';
+        if(shown){
+          pwd.type = 'password';
+          toggle.setAttribute('aria-pressed','false');
+          toggle.title = 'Mostrar senha';
+          // restore eye icon
+          eyeIcon.innerHTML = '<path d="M2.5 12S5.5 5.5 12 5.5 21.5 12 21.5 12 18.5 18.5 12 18.5 2.5 12 2.5 12z" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.2" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>';
+        } else {
+          pwd.type = 'text';
+          toggle.setAttribute('aria-pressed','true');
+          toggle.title = 'Ocultar senha';
+          // eye-off icon
+          eyeIcon.innerHTML = '<path d="M3 3l18 18" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12S5.5 5.5 12 5.5a10.6 10.6 0 0 1 5.6 1.6" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>';
+        }
+      });
+
+      function setLoading(on){
+        if(on){
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span style="opacity:0.95">Entrando…</span>';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Entrar';
+        }
+      }
+
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        formError.style.display = 'none';
+        // quick validation
+        const valEmail = email.value.trim();
+        const valPwd = pwd.value;
+
+        if(!isValidEmail(valEmail)){
+          email.focus();
+          emailHelp.textContent = 'Informe um e‑mail válido';
+          email.setAttribute('aria-invalid','true');
+          return;
+        }
+        if(valPwd.length < 6){
+          pwd.focus();
+          pwdHelp.textContent = 'Senha muito curta';
+          pwd.setAttribute('aria-invalid','true');
+          return;
+        }
+
+        // simulate async auth (immediate UI work only)
+        setLoading(true);
+        // since we cannot do background tasks or real requests here, simulate a quick delay
+        // but we must perform all in this response — this simulated delay is executed by JS in the page (ok)
+        setTimeout(() => {
+          setLoading(false);
+          // demo: reject if email contains "invalid" (so dev can test error state)
+          if(valEmail.toLowerCase().includes('invalid')){
+            formError.textContent = 'E‑mail ou senha incorretos. Tente novamente.';
+            formError.style.display = 'block';
+            return;
+          }
+
+          // Success path — in real app you'd redirect or call API
+          // For demo we show a small success message
+          form.innerHTML = '<div style="text-align:center;padding:28px;"><h2 style="margin:0;color:var(--accent)">Bem‑vindo(a)!</h2><p style="color:var(--muted);margin-top:8px">Login efetuado com sucesso (demo).</p></div>';
+        }, 900);
+      });
+
+      // small accessibility: pressing Enter on the visibility button should toggle
+      toggle.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle.click();
+        }
+      });
+
+      // demo links: prevent navigation (so page stays)
+      document.getElementById('forgotLink').addEventListener('click', (e)=>{ e.preventDefault(); alert('Fluxo de recuperação de senha (demo).');});
+      document.getElementById('signupLink').addEventListener('click', (e)=>{ e.preventDefault(); alert('Fluxo de cadastro (demo).');});
+    })();
+  </script>
+</body>
+</html>

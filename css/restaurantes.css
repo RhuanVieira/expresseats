@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff5f5;
+  color: #2e2e2e;
+}
+
+header {
+  background-color: #e82600;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1603052875811-3e76f2424c80');
+  background-size: cover;
+  background-position: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  font-size: 18px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #e82600;
+  border-radius: 8px;
+  outline: none;
+}
+
+.location-toggle {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.location-toggle input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.store-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.store {
+  background-color: #ffe6e6;
+  border-left: 5px solid #e82600;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.store h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #e82600;
+}
+
+.status {
+  font-size: 14px;
+  color: green;
+  font-weight: bold;
+  display: block;
+  margin: 4px 0;
+}
+
+.store p {
+  margin: 5px 0;
+}
+
+.store a {
+  color: #e82600;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.map-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e82600;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .map-icon {
+    right: 10px;
+  }
+}

@@ -33,7 +33,7 @@ html, body {
   position: absolute;
   width: 200vh; /* Altura da viewport como base do círculo */
   height: 200vh;
-  background-color: #fcdad5;
+  background-color: #ff5339;
   border-radius: 50%;
   left: -100vh; /* Move o círculo para que só a metade direita apareça */
   top: -50vh;   /* Centraliza verticalmente */
@@ -60,8 +60,8 @@ html, body {
 /* LADO DIREITO COM FORMULÁRIO */
 .right-side {
   width: 50%;
-  background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -72,12 +72,12 @@ html, body {
   flex-direction: column;
   gap: 15px;
   width: 80%;
-  max-width: 300px;
+  max-width: 400px;
   background-color: #f6f6f6;
   padding: 30px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  padding-inline: ;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* padding-inline: ;  REMOVIDO, pois estava vazio */
   border-radius: 10px;
 }
 
@@ -85,38 +85,216 @@ html, body {
   color: #434343;
   text-align: center;
   margin-bottom: 5px;
+  margin-top: 10px;
   font-size: 15px;
 }
 
-.frases{
+.frases {
   color: #F44029;
-text-align: center;
-margin-bottom: 5px;
-font-size: 15px;
-transform: translateY(0);
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 30px;
+  transform: translateY(0);
   transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
   opacity: 1;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
-
-.login-form input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-form button {
-  padding: 10px;
-  background-color: #F44029;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.button-google {
+  border: 0.1px solid rgb(220, 220, 220);
+  text-align: center;
+  gap: 45px;
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.login-form button:hover {
-  background-color: #d13824;
+.button-google:hover {
+  background-color: #e4eefb;
+}
+
+.button-facebook {
+  border: 0.1px solid rgb(220, 220, 220);
+  background-color: #1977F3;
+  color: white;
+  text-align: center;
+  gap: 45px;
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.texto-input {
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+}
+
+.logo-google {
+  width: 30px;
+}
+
+.caixa-externa {
+  gap: 50px;
+  align-self: center;
+}
+
+.botao {
+  width: 100px;
+  height: 50px;
+  border: 0.5px solid #b3b2b2;
+  color: #b3b2b2;
+  border-radius: 8px;
+  background: none;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.botao:hover {
+  color: white;
+  background-color: #F44029;
+}
+
+.botoes-entrar{
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* RESPONSIVO */
+@media (max-width: 970px) {
+  .container {
+    flex-direction: column;
+  }
+  .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+  .left-side {
+    width: 100%;
+    height: 100px; /* altura suficiente para o meio círculo e logo */
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .circle {
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    height: 50vw;
+    max-height: 250px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff5339;
+    border-bottom-left-radius: 50vw;  /* raio igual à altura */
+    border-bottom-right-radius: 50vw;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    z-index: 0;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 1;
+    width: 120px;
+    height: auto;
+  }
+
+  .clientes {
+    display: none;
+  }
+
+  .right-side {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.frases{
+  font-size: 15px;
+  margin-top: 50px;
+}
+}
+@media (max-width: 431px){
+
+   .left-side {
+    width: 100%;
+    height: 75px; /* altura suficiente para o meio círculo e logo */
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .frases{
+  font-size: 15px;
+  
+}
+
+.texto-input {
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  
+  display: none;
+}
+
+.logo-google {
+  width: 30px;
+}
+
+.caixa-externa {
+  gap: 10px;
+  align-self: center;
+  display: flex;
+
+
+}
+.button-google {
+  border: 0.1px solid rgb(224, 224, 224);
+  background-color: #d1d1d1;
+  text-align: center;
+  gap: 45px;
+  display: flex;
+  width: 50px;
+  border-radius: 1000px;
+  padding: 10px 10px;
+ 
+  cursor: pointer;
+}
+.button-facebook {
+  border: 0.1px solid rgb(220, 220, 220);
+  background-color: #1977F3;
+  color: white;
+  text-align: center;
+  gap: 45px;
+  width: 50px;
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+.botoes-entrar{
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: center;
+}
 }

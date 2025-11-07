@@ -33,7 +33,7 @@ html, body {
   position: absolute;
   width: 200vh; /* Altura da viewport como base do círculo */
   height: 200vh;
-  background-color: #ff5339;
+  background-color: #fe6f59;
   border-radius: 50%;
   left: -100vh; /* Move o círculo para que só a metade direita apareça */
   top: -50vh;   /* Centraliza verticalmente */
@@ -90,7 +90,7 @@ html, body {
 }
 
 .frases {
-  color: #F44029;
+  color: #fe6f59;
   text-align: center;
   margin-bottom: 5px;
   font-size: 30px;
@@ -126,6 +126,11 @@ html, body {
   cursor: pointer;
 }
 
+.button-facebook img{
+  position: relative;
+  top: -5px;
+}
+
 .texto-input {
   position: relative;
   top: 5px;
@@ -154,7 +159,7 @@ html, body {
 
 .botao:hover {
   color: white;
-  background-color: #F44029;
+  background-color: #fe6f59;
 }
 
 .botoes-entrar{
@@ -195,7 +200,7 @@ html, body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #ff5339;
+    background-color: #fe6f59;
     border-bottom-left-radius: 50vw;  /* raio igual à altura */
     border-bottom-right-radius: 50vw;
     border-top-left-radius: 0;

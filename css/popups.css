@@ -1,0 +1,51 @@
+.popup-canto {
+  position: relative;
+  top: 100px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #333;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  font-weight: 500;
+  z-index: 1000;
+  display: none; /* Começa oculto */
+  animation: slideIn 0.5s ease;
+}
+
+.dentro-popup{
+    display: flex;
+    margin-right: 100px;
+}
+
+.popup-canto p{
+    width: 150px;
+    text-align:left;
+    margin-top: 10px;
+    
+}
+
+
+/* Animação de entrada */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botão de fechar (X) */
+.popup-canto .fechar {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff3d00;
+  cursor: pointer;
+}

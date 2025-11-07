@@ -156,7 +156,18 @@ banners.addEventListener('touchmove', (e) => {
   aplicarEfeitoRolagem();
 }, { passive: true });
 
-banners.addEventListener('scroll', atualizarSetas);
-window.addEventListener('resize', atualizarSetas);
-window.addEventListener('load', atualizarSetas);
+document.getElementById('scrollDownBtn').addEventListener('click', () => {
+  const nextSection = document.querySelector('.restaurantes-populares');
+  const sectionTop = nextSection.getBoundingClientRect().top + window.scrollY;
+  const offset = -80; // valor negativo sobe o ponto, positivo desce
+  window.scrollTo({ top: sectionTop + offset, behavior: 'smooth' });
+});
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  menuToggle.innerHTML = navMenu.classList.contains("active")
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});

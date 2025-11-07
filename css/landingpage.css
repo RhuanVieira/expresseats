@@ -1,22 +1,17 @@
 * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins", sans-serif;}
-.poppins-thin {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
+.poppins-thin {font-family: "Poppins", sans-serif;font-weight: 100;font-style: normal;}
 body {background-color:#fff; color:#333; }
-
 /* HEADER */
-.header {display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:#fff; color:#fe6f59;font-family:"Poppins", sans-serif; font-weight: 200;}
+.header {display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:#f7f7f7; color:#fe6f59;font-family:"Poppins", sans-serif; font-weight: 200; position:fixed; top:0; left:0; width:100%; z-index:1000; box-shadow:10px 2px 10px 10px rgba(0, 0, 0, 0.03);}
 .logo img {width:100px;}
-.nav a {margin:0 15px; color:#fe6f59; text-decoration:none; font-weight:500; position:relative; transition:color 0.3s;}
+.nav a {margin:0 15px; color:#fe6f59; text-decoration:none; font-weight:500; position:relative; transition:color 0.3s; right: -40px;}
 .nav a::after {content:""; position:absolute; left:0; bottom:-3px; width:0%; height:2px; background-color:#fe6f59; transition:width 0.3s ease-in-out;}
 .nav a:hover::after {width:100%;}
 .btn-login {background:#fe6f59; color:#fff; border:none; padding:8px 20px; border-radius:25px; font-weight:600; cursor:pointer; transition:transform 0.3s ease-in-out, background-color 0.3s;}
 .btn-login:hover {transform:translateY(-2px); background:transparent; border:0.5px solid #fe6f59; color:#fe6f59;}
 .usuario{display: flex; flex-direction: row;}
-.texto_usuario{position: relative; top: 7px; cursor: default;}
-.usuario img{width: 30px; font-weight: 100;cursor: pointer;}
+.texto_usuario{position: relative; top: 4px; cursor: default; font-weight: 400;}
+.usuario img{width: 30px;cursor: pointer;}
 
 /* HERO */
 .hero {display:flex; flex-direction:column; align-items:center; padding:60px 8%;}
@@ -35,7 +30,7 @@ body {background-color:#fff; color:#333; }
 
 /* CARDS */
 .cards {display:flex; gap:40px; justify-content:center; margin-top:40px; padding-bottom: 110px; width: 10%; }
-.card {display:flex; align-items:center; gap:15px; background:#e53935; padding:15px; color:white; border-radius:15px; transition:transform 0.2s ease-in-out; cursor:pointer; box-shadow:rgba(0,0,0,0.3) 0px 5px 15px; ;}
+.card {display:flex; align-items:center; gap:10px; background:#e53935; padding:15px; color:white; border-radius:15px; transition:transform 0.2s ease-in-out; cursor:pointer; box-shadow:rgba(0,0,0,0.3) 0px 5px 15px; position: relative;left: -30px;}
 .card:hover {transform:scale(1.02);}
 #mercado {background:#ff9800;}
 .titulo-card {margin-bottom:5px;}
@@ -49,89 +44,37 @@ body {background-color:#fff; color:#333; }
 .footer {text-align:center; padding:20px; background:#fff; color:#777; font-size:0.9rem;}
 
 /* POPUP CUPOM */
-.popup-canto {position:fixed; top:100px; right:55px; background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3); padding:15px; display:none; z-index:1000; width:300px;}
+.popup-canto {position:fixed; top:440px; right:9px; background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3); padding:15px; display:none; z-index:1000; width:300px;}
 .popup-canto .fechar {position:absolute; top:5px; right:10px; cursor:pointer; font-weight:bold;}
 .popup-canto .dentro-popup {display:flex; align-items:center;}
 .popup-canto .textos .titulo-popup {font-weight:bold; margin-bottom:5px;}
 
 
 /*Os Melhores Restaurantes*/
-.restaurantes-populares {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  padding-top: 20px;
-}
-
-.container{
-  border-top: 1px solid #33333339 ;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.restaurantes-populares h2 {
-  margin: 30px 0 10px 100px;
-  font-family: 'Poppins', sans-serif; 
-  font-weight: 500;
-}
-
-.cards-restaurantes {
-  display: flex;
-  gap: 20px;        /* espaço entre os cards (melhor que margin-left em cada um) */
-  flex-wrap: wrap;  /* permite quebrar linha automaticamente */
-  margin: 30px 100px;
-  width: 90%;
-}
-
-.restaurante {
-  display: flex;
-  align-items: center;       /* centraliza verticamente os itens */
-  border: 1px solid #33333339;
-  width: 300px;
-  padding:50px 10px 50px 10px;
-  border-radius: 15px;
-  background-color: white;
-  transition: 0.3s;
-}
-
-.restaurante:hover {
-  box-shadow: 0px 4px 12px #0000001a; /* efeito hover mais moderno */
-  border: 1px solid #fe6f59;
-  cursor: pointer;
-}
-
-.logo-restaurante {
-  width: 50px;
-  border-radius: 100px;
-}
-
-.textos-restaurante {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-  gap: 5px;
-}
-
-.textos-restaurante h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.textos-restaurante p {
-  font-size: 14px;
-  color: #777;
-  margin: 0;
-}
-
-
-.especificacao{
-  font-size: small;
-  color: #00000059;
-}
-
+.restaurantes-populares { display: flex;align-items: center;justify-content: center;padding-top: 30px;flex-direction: column;padding-bottom: 80px;}
+.container{border-top: 1px solid #33333339 ;display: flex;flex-direction: column;width: 100%; }
+.restaurantes-populares h2 {margin: 30px 0 10px 100px;font-family: 'Poppins', sans-serif; font-weight: 500;}
+.cards-restaurantes {display: flex;gap: 20px; flex-wrap: wrap; margin: 20px 100px ;width: 90%;}
+.restaurante {display: flex;align-items: center;       border: 1px solid #33333339;width: 260px;padding:30px 10px 30px 10px;border-radius: 15px;background-color: white;transition: 0.3s;}
+.restaurante:hover {box-shadow: 0px 4px 12px #0000001a;border: 1px solid #fe6f59;cursor: pointer;}
+.logo-restaurante{width: 50px;border-radius: 100px;}
+.textos-restaurante {display: flex;flex-direction: column;margin-left: 15px;gap: 5px;}
+.textos-restaurante h3 {font-size: 16px;font-weight: 600;margin: 0;}
+.textos-restaurante p {font-size: 14px; color: #777;margin: 0;}
+.especificacao{font-size: small;color: #00000059;}
+.imagens-banner {display: flex; position: relative; overflow: hidden; width: 100%; margin: 20px 100px; justify-content: center; align-items: center;}
+.banners {display: flex; gap: 20px; flex-wrap: nowrap; overflow-x: auto; ; scrollbar-width: none; cursor: grab; transition: transform 0.2s ease-out;}
+.banners::-webkit-scrollbar {display: none;}
+.banners:active {cursor: grabbing; transform: scale(0.98);}
+.banners img {border-radius: 15px; width: 400px; flex-shrink: 0; user-select: none; pointer-events: none; transition: transform 0.3s ease, opacity 0.3s ease;}
+.banners.scrolling img {transform: scale(0.97); opacity: 0.9;}
+.seta {position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(254,111,89,0.8); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out; opacity: 0;}
+.seta:hover {background-color: rgba(254,111,89,1);}
+.seta.esquerda {left: 10px;}
+.seta.direita {right: 10px;}
+.seta.mostrar {display: flex; opacity: 1; animation: fadeIn 0.4s ease-in-out;}
+.secao-beneficios{ display: flex;align-items: center;justify-content: center;}
+@keyframes fadeIn {from {opacity: 0; transform: translateY(-50%) scale(0.9);} to {opacity: 1; transform: translateY(-50%) scale(1);}}
 
 
 @keyframes slideIn {
@@ -145,59 +88,14 @@ body {background-color:#fff; color:#333; }
   }
 }
 /* POPUP MAPA */
-.popup-central {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
-}
+.popup-central {position: fixed;top: 0px;left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center;z-index: 1001;}
+.popup-mapa-conteudo {background: #fff;padding: 20px;border-radius: 15px;width: 90%;max-width: 700px;position: relative;display: flex;flex-direction: column;align-items: center; }
+#map { width: 100%;   height: 400px;border-radius: 15px;margin-bottom: 15px; }
+.botao-mapa {padding: 8px 15px;font-size: 15px;font-weight: 300;color: #ff3d00;border: solid 0.5px #ff3d00;border-radius: 20px;background: transparent;cursor: pointer;transition: background-color 0.3s ease-in-out;}
+.botao-mapa:hover{background-color: #ff3d00;color: white;}
+.popup-mapa-conteudo .popup-close {position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer; font-weight: bold;}
 
-.popup-mapa-conteudo {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 700px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centraliza horizontalmente tudo */
-}
+@media(max-width:600px){
 
-#map {
-  width: 100%;    /* garantir que o mapa ocupe toda largura do popup */
-  height: 400px;
-  border-radius: 15px;
-  margin-bottom: 15px; /* espaço entre mapa e botão */
-}
 
-.botao-mapa {
-  padding: 8px 15px;
-  font-size: 15px;
-  font-weight: 300;
-  color: #ff3d00;
-  border: solid 0.5px #ff3d00;
-  border-radius: 20px;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-.botao-mapa:hover{
-  background-color: #ff3d00;
-  color: white;
-}
-
-.popup-mapa-conteudo .popup-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bold;
 }

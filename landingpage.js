@@ -87,3 +87,76 @@ enderecoInput.addEventListener("input", function() {
   closeMapa.addEventListener("click", () => {
     popupMapa.style.display = "none";
   });
+
+ const banners = document.querySelector('.banners');
+const setaEsquerda = document.querySelector('.seta.esquerda');
+const setaDireita = document.querySelector('.seta.direita');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+let scrollTimeout;
+
+function atualizarSetas() {
+  const scrollLeftNow = banners.scrollLeft;
+  const maxScroll = banners.scrollWidth - banners.clientWidth;
+  if (scrollLeftNow > 0) { setaEsquerda.classList.add('mostrar'); } else { setaEsquerda.classList.remove('mostrar'); }
+  if (scrollLeftNow < maxScroll) { setaDireita.classList.add('mostrar'); } else { setaDireita.classList.remove('mostrar'); }
+}
+
+function aplicarEfeitoRolagem() {
+  banners.classList.add('scrolling');
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => banners.classList.remove('scrolling'), 300);
+}
+
+// 👉 Clique nas setas
+setaEsquerda.addEventListener('click', () => {
+  banners.scrollBy({ left: -400, behavior: 'smooth' });
+  aplicarEfeitoRolagem();
+});
+
+setaDireita.addEventListener('click', () => {
+  banners.scrollBy({ left: 400, behavior: 'smooth' });
+  aplicarEfeitoRolagem();
+});
+
+// 👉 Arrastar com o mouse / dedo
+banners.addEventListener('mousedown', (e) => {
+  isDown = true;
+  banners.classList.add('scrolling');
+  startX = e.pageX - banners.offsetLeft;
+  scrollLeft = banners.scrollLeft;
+});
+
+banners.addEventListener('mouseleave', () => { isDown = false; banners.classList.remove('scrolling'); });
+banners.addEventListener('mouseup', () => { isDown = false; banners.classList.remove('scrolling'); });
+banners.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - banners.offsetLeft;
+  const walk = (x - startX) * 1.2; // Velocidade da rolagem
+  banners.scrollLeft = scrollLeft - walk;
+  aplicarEfeitoRolagem();
+});
+
+// 👉 Touch (mobile)
+banners.addEventListener('touchstart', (e) => {
+  isDown = true;
+  startX = e.touches[0].pageX - banners.offsetLeft;
+  scrollLeft = banners.scrollLeft;
+}, { passive: true });
+
+banners.addEventListener('touchend', () => { isDown = false; });
+banners.addEventListener('touchmove', (e) => {
+  if(!isDown) return;
+  const x = e.touches[0].pageX - banners.offsetLeft;
+  const walk = (x - startX) * 1.2;
+  banners.scrollLeft = scrollLeft - walk;
+  aplicarEfeitoRolagem();
+}, { passive: true });
+
+banners.addEventListener('scroll', atualizarSetas);
+window.addEventListener('resize', atualizarSetas);
+window.addEventListener('load', atualizarSetas);
+

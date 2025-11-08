@@ -141,6 +141,7 @@ banners.addEventListener('mousemove', (e) => {
 });
 
 // 👉 Touch (mobile)
+// --- Controle de arrastar banners ---
 banners.addEventListener('touchstart', (e) => {
   isDown = true;
   startX = e.touches[0].pageX - banners.offsetLeft;
@@ -149,25 +150,37 @@ banners.addEventListener('touchstart', (e) => {
 
 banners.addEventListener('touchend', () => { isDown = false; });
 banners.addEventListener('touchmove', (e) => {
-  if(!isDown) return;
+  if (!isDown) return;
   const x = e.touches[0].pageX - banners.offsetLeft;
   const walk = (x - startX) * 1.2;
   banners.scrollLeft = scrollLeft - walk;
   aplicarEfeitoRolagem();
 }, { passive: true });
 
+// --- Botão scroll down ---
 document.getElementById('scrollDownBtn').addEventListener('click', () => {
   const nextSection = document.querySelector('.restaurantes-populares');
   const sectionTop = nextSection.getBoundingClientRect().top + window.scrollY;
-  const offset = -80; // valor negativo sobe o ponto, positivo desce
+  const offset = -80;
   window.scrollTo({ top: sectionTop + offset, behavior: 'smooth' });
 });
+
+// --- Menu lateral responsivo ---
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
+const closeMenu = document.getElementById("closeMenu");
 
 menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  menuToggle.innerHTML = navMenu.classList.contains("active")
+  const isActive = navMenu.classList.toggle("active");
+
+  // troca o ícone dinamicamente
+  menuToggle.innerHTML = isActive
     ? '<i class="fa-solid fa-xmark"></i>'
     : '<i class="fa-solid fa-bars"></i>';
+});
+
+// botão X dentro do menu
+closeMenu.addEventListener("click", () => {
+  navMenu.classList.remove("active");
+  menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
 });

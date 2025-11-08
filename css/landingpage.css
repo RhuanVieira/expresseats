@@ -1,8 +1,8 @@
 * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins", sans-serif;}
 .poppins-thin {font-family: "Poppins", sans-serif;font-weight: 100;font-style: normal;}
-body {background-color:#fff; color:#333; }
+body {background-color:#fff; color:#333;font-family: "Poppins" }
 /* HEADER */
-.header {display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:#f7f7f7; color:#fe6f59;font-family:"Poppins", sans-serif; font-weight: 200; position:fixed; top:0; left:0; width:100%; z-index:1000; box-shadow:10px 2px 10px 10px rgba(0, 0, 0, 0.03);}
+.header {display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:#f7f7f7; color:#fe6f59; font-family:"Poppins",sans-serif; font-weight:200; position:fixed; top:0; left:0; width:100%; z-index:1000; box-shadow:10px 2px 10px 10px rgba(0,0,0,0.03);}
 .logo img {width:100px;}
 .nav a {margin:0 15px; color:#fe6f59; text-decoration:none; font-weight:500; position:relative; transition:color 0.3s; right: -40px;}
 .nav a::after {content:""; position:absolute; left:0; bottom:-3px; width:0%; height:2px; background-color:#fe6f59; transition:width 0.3s ease-in-out;}
@@ -53,8 +53,8 @@ body {background-color:#fff; color:#333; }
 /*Os Melhores Restaurantes*/
 .restaurantes-populares { display: flex;align-items: center;justify-content: center;padding-top: 30px;flex-direction: column;padding-bottom: 80px;}
 .container{border-top: 1px solid #33333339 ;display: flex;flex-direction: column;width: 100%; }
-.restaurantes-populares h2 {margin: 30px 0 10px 100px;font-family: 'Poppins', sans-serif; font-weight: 500;}
-.cards-restaurantes {display: flex;gap: 20px; flex-wrap: wrap; margin: 20px 100px ;width: 90%;}
+.restaurantes-populares h2 {margin: 30px 0 10px 140px;font-family: 'Poppins', sans-serif; font-weight: 500;}
+.cards-restaurantes {display: flex;gap: 20px; flex-wrap: wrap; margin: 20px 140px ;width: 90%;}
 .restaurante {display: flex;align-items: center;       border: 1px solid #33333339;width: 260px;padding:30px 10px 30px 10px;border-radius: 15px;background-color: white;transition: 0.3s;}
 .restaurante:hover {box-shadow: 0px 4px 12px #0000001a;border: 1px solid #fe6f59;cursor: pointer;}
 .logo-restaurante{width: 50px;border-radius: 100px;}
@@ -62,19 +62,19 @@ body {background-color:#fff; color:#333; }
 .textos-restaurante h3 {font-size: 16px;font-weight: 600;margin: 0;}
 .textos-restaurante p {font-size: 14px; color: #777;margin: 0;}
 .especificacao{font-size: small;color: #00000059;}
-.imagens-banner {display: flex; position: relative; overflow: hidden; width: 100%; margin: 20px 100px; justify-content: center; align-items: center;}
-.banners {display: flex; gap: 20px; flex-wrap: nowrap; overflow-x: auto; ; scrollbar-width: none; cursor: grab; transition: transform 0.2s ease-out;}
-.banners::-webkit-scrollbar {display: none;}
-.banners:active {cursor: grabbing; transform: scale(0.98);}
-/* keep banner image size as original */
-.banners img {border-radius: 15px; width: 400px; flex-shrink: 0; user-select: none; pointer-events: none; transition: transform 0.3s ease, opacity 0.3s ease;}
-.banners.scrolling img {transform: scale(0.97); opacity: 0.9;}
-.seta {position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(254,111,89,0.8); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out; opacity: 0;}
-.seta:hover {background-color: rgba(254,111,89,1);}
-.seta.esquerda {left: 10px;}
-.seta.direita {right: 10px;}
-.seta.mostrar {display: flex; opacity: 1; animation: fadeIn 0.4s ease-in-out;}
-.secao-beneficios{ display: flex;align-items: center;justify-content: center;}
+.imagens-banner{position:relative;width:100%;display:flex;justify-content:center;align-items:center;overflow:hidden;margin:40px 0;}
+.banners{display:flex;gap:20px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;cursor:grab;transition:transform 0.2s ease-out;}
+.banners::-webkit-scrollbar{display:none;}
+.banners:active{cursor:grabbing;transform:scale(0.98);}
+.banners img{border-radius:15px;width:400px;flex-shrink:0;user-select:none;pointer-events:none;transition:transform 0.3s ease,opacity 0.3s ease;}
+.banners.scrolling img{transform:scale(0.97);opacity:0.9;}
+.seta{position:absolute;top:50%;transform:translateY(-50%);background-color:;color:white;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity 0.3s ease,background-color 0.3s ease;z-index:5;}
+.imagens-banner:hover .seta{opacity:1;}
+.seta.esquerda{left:20px;}
+.seta.direita{right:20px;}
+.seta:hover{}
+.secao-beneficios{display:flex;align-items:center;justify-content:center;}
+
 @keyframes fadeIn {from {opacity: 0; transform: translateY(-50%) scale(0.9);} to {opacity: 1; transform: translateY(-50%) scale(1);}}
 
 
@@ -92,7 +92,7 @@ body {background-color:#fff; color:#333; }
 .popup-central {position: fixed;top: 0px;left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center;z-index: 1001;}
 .popup-mapa-conteudo {background: #fff;padding: 20px;border-radius: 15px;width: 90%;max-width: 700px;position: relative;display: flex;flex-direction: column;align-items: center; }
 #map { width: 100%;   height: 400px;border-radius: 15px;margin-bottom: 15px; }
-.botao-mapa {padding: 8px 15px;font-size: 15px;font-weight: 300;color: #ff3d00;border: solid 0.5px #ff3d00;border-radius: 20px;background: transparent;cursor: pointer;transition: background-color 0.3s ease-in-out;}
+.botao-mapa {padding: 8px 15px;font-size: 15px;font-weight: 300;color: #ff3d00;border: solid 0.5px #ff3d00;border-radius: 20px;background: transparent;cursor: pointer;transition: background-color 0.3s ease-in-out;text-align: center;}
 .botao-mapa:hover{background-color: #ff3d00;color: white;}
 .popup-mapa-conteudo .popup-close {position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer; font-weight: bold;}
 /* SCROLL DOWN BUTTON (kept optional and non-invasive) */
@@ -101,9 +101,9 @@ body {background-color:#fff; color:#333; }
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: transparent;
+  background-color: #fe6f59;
   border: 2px solid #fe6f59;
-  color: #fe6f59;
+  color: #ffffff;
   font-size: 20px;
   border-radius: 50%;
   width: 50px;
@@ -121,6 +121,15 @@ body {background-color:#fff; color:#333; }
   color: #fff;
   transform: translateX(-50%) translateY(-3px);
 }
+
+#navMenu{display: flex;}
+
+.entregadores{background-color: ;padding: 20px 0; display: flex; font-weight: 500;border-bottom: 1px solid #33333339 ;padding-bottom: 140px; }
+.imagem-entregadora{margin-left: 80px; background-color: #ff3c005a;display: flex;width: 300px;border-radius: 100%;height: 320px;}
+/*.entregadora{}*/
+.texto-entregadores{margin-left: 30px;}
+.texto-entregadores h2{font-family: 'Poppins', sans-serif; font-weight: 600; color: #000000a3; text-align: center;}
+.p-entregadores{font-weight: 300;width: 200px; text-align: center; justify-items: center;position: relative;left: 50px;margin-top: 8px;color: #00000086;}
 
 /* animação de “pular” */
 @keyframes bounce {
@@ -141,7 +150,16 @@ body {background-color:#fff; color:#333; }
 /* -------------------- RESPONSIVE QUERIES (only adjustments) -------------------- */
 
 /* Large tablets / small laptops */
-@media (max-width: 911px) {
+@media(max-width: 1100px){
+  .entregadores{margin:0;background-color: ;; display: flex;flex-direction: column; font-weight: 500;border-bottom: 1px solid #33333339 ;padding-bottom: 140px;justify-content: center; align-items: center;}
+.imagem-entregadora{margin:0;justify-content: center; background-color: #ff3c005a;display: flex;width: 300px;border-radius: 100%;margin-top: 40px;}
+.entregadora{width: 250px;}
+.texto-entregadores{margin:0}
+.texto-entregadores h2{font-family: 'Poppins', sans-serif; font-weight: 600; color: #000000a3; text-align: center;align-items: center;}
+.p-entregadores{font-weight: 300;width: 200px; text-align: center; justify-items: center;position: relative;margin-top: 8px;color: #00000086;}
+}
+
+@media (max-width: 1000px) {
   /* keep original styles, only gentle width/tip adjustments */
   .search-container { width: 340px; max-width: 80%; }
   .cards { gap: 28px; }
@@ -152,7 +170,13 @@ body {background-color:#fff; color:#333; }
   .hamburguer { width: 140px; }
   .carrinho { width: 180px; }
   .usuario{display: none;}
-  .bem-vindo{font-size:medium;position: relative;margin-top: 50px;}
+  .bem-vindo{font-size:medium;position: relative;margin-top: 50px; color:#fe6f59 ;}
+  .entregadores{margin:0;background-color: ;; display: flex;flex-direction: column; font-weight: 500;border-bottom: 1px solid #33333339 ;padding-bottom: 140px;justify-content: center; align-items: center;}
+.imagem-entregadora{margin:0;justify-content: center; background-color: #ff3c005a;display: flex;width: 300px;border-radius: 100%;margin-top: 40px;}
+.entregadora{width: 250px;}
+.texto-entregadores{margin:0}
+.texto-entregadores h2{font-family: 'Poppins', sans-serif; font-weight: 600; color: #000000a3; text-align: center;align-items: center;}
+.p-entregadores{font-weight: 300;width: 200px; text-align: center; justify-items: center;position: relative;margin-top: 8px;color: #00000086;}
 }
 
 /* Tablets / mobile landscape */
@@ -164,22 +188,25 @@ body {background-color:#fff; color:#333; }
   /* show a menu toggle icon (you can add the HTML .menu-toggle if desired) */
   .menu-toggle { display: block; font-size: 26px; color: #fe6f59; cursor: pointer; position: relative; z-index: 1100; }
   /* transform nav into off-canvas on small screens (keeps desktop markup intact) */
+ 
   .nav {
-    position: fixed;
-    top: 64px; /* slightly below header */
-    right: -100%;
-    background-color: #fff;
-    width: 70%;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 40px;
-    gap: 20px;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.08);
-    transition: right 0.28s ease-in-out;
-    z-index: 1099;
-  }
+  position: fixed;
+  top: 0;
+  right: -100%;
+  background-color: #fff;
+  width: 60%; /* ocupa metade da tela */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 60px 40px 0 40px;
+  gap: 30px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.08);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
   .usuario{display: none;}
   .nav.active { right: 0; }
 
@@ -202,14 +229,14 @@ body {background-color:#fff; color:#333; }
   .restaurante { width: calc(100% - 40px); padding: 20px 12px; }
 
   /* banners scale down but keep same radius */
-  .imagens-banner { margin: 16px 20px; }
+  .imagens-banner { margin:  20px; }
   .banners img { width: 320px; }
 
   /* popup cupom reposition so it doesn't overflow on mobile */
   .popup-canto { top: auto; bottom: 18px; right: 12px; width: 88%; max-width:360px; }
   .search-bar{display: flex;flex-direction: column;width: 90%;}
+  
 }
-
 /* Small phones */
 @media (max-width: 480px) {
   /* header smaller */
@@ -222,6 +249,24 @@ body {background-color:#fff; color:#333; }
   /* hero: reduce paddings and keep readable */
   .hero { padding: 70px 5% 30px; min-height: calc(100vh - 56px); }
 
+  .nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  background-color: #fff;
+  width: 60%; /* ocupa metade da tela */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 60px 40px 0 40px;
+  gap: 30px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.08);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
   /* search smaller */
   .search-container { padding: 6px 12px; width: 100%; max-width: 100%; }
   .search-container i { margin-right:8px; font-size:16px; }
@@ -233,7 +278,8 @@ body {background-color:#fff; color:#333; }
   /* restaurantes list */
   .restaurantes-populares h2 { margin-left: 16px; font-size: 1.05rem; }
   .cards-restaurantes { margin: 12px 16px; gap: 12px; width: calc(100% - 32px); }
-
+  .hamburguer{display: none;}
+.carrinho{display: none;}
   .restaurante { width: 100%; padding: 16px; gap: 12px; }
   .logo-restaurante { width: 46px; }
 
@@ -255,6 +301,7 @@ body {background-color:#fff; color:#333; }
 @media (min-width: 769px) {
   .menu-toggle { display: none !important; }
   .usuario{display: none;}
+  
 }
 
 /* End of responsive adjustments */

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExpressEats</title>
+<link rel="shortcut icon" href="./img/logo_laranja.png" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="./css/landingpage.css">
+<link rel="stylesheet" href="popups.css">
+<link rel="stylesheet" href="./css/cartao.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">
+    <img src="img/logo_laranja.png" alt="Logo ExpressEats">
+  </div>
+  
+   <nav class="nav" id="navMenu">
+    <img src="img/account_circle_24dp_FE6F59_FILL0_wght400_GRAD0_opsz24.svg" style="position: relative;left: 50px;;">
+    <a href="#" style="font-weight: 700;">GUSTAVO</a>
+    <a href="#">Entregador</a>
+    <a href="#">Restaurantes</a>
+    <a href="#">Express Card</a>
+    <div class="usuario">
+      <img src="img/account_circle_24dp_FE6F59_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="user_icon">
+      <p class="texto_usuario">Bem-vindo(a) <span class="nome">THIER!</span></p>
+    </div>
+  </nav>
+   <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <div class="usuario">
+   <img src="img/account_circle_24dp_FE6F59_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="user_icon">
+   <p class="texto_usuario">Bem-vindo(a) <span class="nome">THIER!</span> </p>
+  </div>
+</header>
+
+
+<section class="container-cartao">
+  <h2>Seu cartão está aqui!</h2>
+  <img src="img/express card.png" alt="" class="cartao" width="200px">
+
+  <div class="acoes-cartao">
+   <button class="nfc-btn">
+   <i class="fa-solid fa-wifi"></i>
+  <span>Aproxime para pagar</span>
+</button>
+
+<!-- Botão Ver Dados normal -->
+<button class="search-button" id="buscarEndereco">
+  <i class="fa-solid fa-credit-card"></i>
+  <span>Ver dados</span>
+</button>
+  </div>
+</section>
+<section class="secao-beneficios">
+
+  <img class="beneficios" src="img/Benefícios.png" alt="" style="width: 90%;">
+
+</section>
+<!-- POPUP DADOS DO CARTÃO -->
+<div class="popup-dados" id="popupCartao">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupCartao">&times;</span>
+    <h3>Dados do Cartão</h3>
+    <div class="info-cartao">
+      <p><strong>Número:</strong> 5451 9823 7621 0932</p>
+      <p><strong>Validade:</strong> 09/30</p>
+      <p><strong>CVV:</strong> 823</p>
+      <p><strong>Titular:</strong> THIER BORIS TITO </p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 ExpressEats — Todos os direitos reservados</p>
+</footer>
+
+
+<script src="./js/cartao.js"></script>
+
+</body>
+</html>

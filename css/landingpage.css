@@ -21,7 +21,7 @@ body {background-color:#fff; color:#333;font-family: "Poppins" }
 .search-container input {flex:1; border:none; outline:none; font-size:1rem; color:#333;}
 .search-container input::placeholder {color:#999;}
 .search-button {background-color:#fe6f59; color:white; border:none; padding:8px 18px; border-radius:25px; font-weight:600; cursor:pointer; transition:transform 0.2s ease-in-out, background-color 0.3s;}
-.search-button:hover {transform:scale(1.05); background-color:#e53935;}
+.search-button:hover {transform:scale(1.05); background-color:#fa5137;}
 
 /* SUGESTÕES */
 .suggestions {position:absolute; top:50px; left:0; width:100%; ; background:#fff; border:1px solid #ccc; border-top:none; max-height:200px; overflow-y:auto; padding: 20px; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:999;}
@@ -170,6 +170,7 @@ body {background-color:#fff; color:#333;font-family: "Poppins" }
   .hamburguer { width: 140px; }
   .carrinho { width: 180px; }
   .usuario{display: none;}
+ 
   .bem-vindo{font-size:medium;position: relative;margin-top: 50px; color:#fe6f59 ;}
   .entregadores{margin:0;background-color: ;; display: flex;flex-direction: column; font-weight: 500;border-bottom: 1px solid #33333339 ;padding-bottom: 140px;justify-content: center; align-items: center;}
 .imagem-entregadora{margin:0;justify-content: center; background-color: #ff3c005a;display: flex;width: 300px;border-radius: 100%;margin-top: 40px;}
@@ -184,7 +185,7 @@ body {background-color:#fff; color:#333;font-family: "Poppins" }
   /* header spacing reduced but visual identical */
   .header { padding: 15px 6%; box-shadow: 8px 2px 8px rgba(0,0,0,0.03); }
   .logo img { width: 85px; }
-
+ nav img{top: 30px; position: relative;}
   /* show a menu toggle icon (you can add the HTML .menu-toggle if desired) */
   .menu-toggle { display: block; font-size: 26px; color: #fe6f59; cursor: pointer; position: relative; z-index: 1100; }
   /* transform nav into off-canvas on small screens (keeps desktop markup intact) */

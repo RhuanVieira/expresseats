@@ -1,0 +1,162 @@
+.container-cartao {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  position: relative;
+}
+
+.cartao {
+  transition: transform 0.6s ease-in-out;
+}
+
+.cartao:hover {
+  transform: translateY(-8px);
+}
+
+h2 {
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: #000000a3;
+}
+
+/* Botão Ver Dados */
+.search-button {
+  background: transparent;
+  border: 1px solid #fe6f59;
+  color: #fe6f59;
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+.search-button:hover {
+  color: white;
+  background: #fe6f59;
+}
+
+/* Botão NFC */
+.nfc-btn {
+  font-family: 'Poppins', sans-serif;
+  background: none;
+
+  border: none;
+  color: rgba(0, 170, 255, 0.884);
+
+  border-radius: 15px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+  cursor: pointer;
+  opacity: 0.9;
+  animation: nfcPulse 2s infinite ease-in-out;
+  margin-top: -30px; /* cola no cartão */
+  position: relative;
+ 
+}
+
+.nfc-btn i {
+  font-size: 0.6rem;
+}
+
+
+
+/* Efeito de toque */
+.nfc-btn:active {
+  transform: scale(0.95);
+  opacity: 0.6;
+}
+
+@keyframes nfcPulse {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(0, 170, 255, 0.264);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(0, 200, 255, 0.9);
+    transform: scale(1.01);
+  }
+}
+
+.popup-dados {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.158);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* POPUP - Caixa */
+.popup-conteudo {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.084);
+  text-align: left;
+  width: 280px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Título */
+.popup-conteudo h3 {
+     font-family: 'Poppins', sans-serif;
+  color: #fe6f59;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Fechar */
+.fechar-popup {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.2rem;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.fechar-popup:hover { color: #fe6f59; }
+
+/* Dados */
+.info-cartao p {
+     font-family: 'Poppins', sans-serif;
+  margin: 6px 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+@media (max-width:600px){
+    .nfc-btn{display: flex;}
+    .search-button {
+  background: transparent;
+  border: 1px solid #fe6f59;
+  color: #fe6f59;
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.secao-beneficios{margin-top: 50px;}
+}

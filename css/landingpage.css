@@ -40,8 +40,121 @@ body {background-color:#fff; color:#333;font-family: "Poppins" }
 .hamburguer {position:relative; top:35px; width:150px;}
 .carrinho {position:relative; top:15px; width:200px;}
 
-/* FOOTER */
-.footer {text-align:center; padding:20px; background:#fff; color:#777; font-size:0.9rem;}
+/* FOOTER COMPLETO */
+.footer {
+  background-color: #e4e4e4;
+  color: #000000;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  margin-bottom: 30px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px 20px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  color: #fe6f59;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fe6f59;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+ 
+  margin: 10px 0;
+}
+
+.social-links a {
+  color: #000000;
+  font-size: 20px;
+  width: 100%;
+ 
+  padding: 8px;
+  border-radius: 100%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  
+  color: #fe6f59;
+}
+
+.footer-contact {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 5px;
+}
+
+.footer-contact i {
+  margin-right: 6px;
+  color: #fe6f59;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding: 15px;
+  background: #e4e4e4;
+  font-size: 13px;
+  color: #2a2a2a;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-col {
+    margin-bottom: 20px;
+  }
+}
 
 /* POPUP CUPOM */
 .popup-canto {position:fixed; top:440px; right:9px; background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3); padding:15px; display:none; z-index:1000; width:300px;}
@@ -185,7 +298,7 @@ body {background-color:#fff; color:#333;font-family: "Poppins" }
   /* header spacing reduced but visual identical */
   .header { padding: 15px 6%; box-shadow: 8px 2px 8px rgba(0,0,0,0.03); }
   .logo img { width: 85px; }
- nav img{top: 30px; position: relative;}
+ nav img{display: none;}
   /* show a menu toggle icon (you can add the HTML .menu-toggle if desired) */
   .menu-toggle { display: block; font-size: 26px; color: #fe6f59; cursor: pointer; position: relative; z-index: 1100; }
   /* transform nav into off-canvas on small screens (keeps desktop markup intact) */
@@ -261,7 +374,7 @@ body {background-color:#fff; color:#333;font-family: "Poppins" }
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 60px 40px 0 40px;
+  padding: 60px 40px 0 10px;
   gap: 30px;
   box-shadow: -2px 0 10px rgba(0,0,0,0.08);
   transition: right 0.3s ease-in-out;
